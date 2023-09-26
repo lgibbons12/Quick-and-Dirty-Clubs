@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home - Cannon Clubs</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'display/style.css' %}">
+</head>
+<body>
+    <h1>Cannon Clubs!</h1>
+        <header id="navbar">
+            
+            
+            <nav class="navbar-container">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="{% url 'display:index' %}" class="nav-link">Cannon Clubs</a></li>
+                    
+                </ul>
+            </nav>
+        </header>
+        
+    
+    
+    <div class="main" id="projects">
+        <div class="grid">
+        {% if club_list %}
+            
+                {% for club in club_list %}
+                <div class="item" id="pinkish">
+                    <img src="{% static 'display/cannonclubs.png' %}" class="small">
+                    <h3><a class="projectlink" href="{% url 'display:club' club.id %}">{{ club.name }}</a></h3>
+                </div>
+                    {% endfor %}
+            
+        {% else %}
+            <p>No clubs are available.</p>
+        {% endif %}
+    </div>
+    </div>
+    
+    <footer>
+        &copy; 2023 Cannon Clubs
+    </footer>
+</body>
+</html>

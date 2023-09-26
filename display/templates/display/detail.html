@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ club.name }} - Cannon Clubs</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'display/detail.css' %}">
+</head>
+<body>
+    <header id="navbar">
+        <nav class="navbar-container">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="{% url 'display:index' %}" class="nav-link">Cannon Clubs</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="detailed">
+        <h1>{{ club.name }}</h1>
+        <p>{{ club.leaders }}</p>
+        {% if club.emails %}
+        <h3>This email may not be correct:    <a href="mailto:email@example.com">{{ club.emails }}</a></h3>
+        {% endif %}
+        <p>{{ club.description }}</p>
+    </div>
+   
+</body>
+</html>
